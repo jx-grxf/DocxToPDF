@@ -4,10 +4,10 @@
  * Keep it as a presentational utility and wire app-specific loading logic outside.
  *
  * Example:
- * const loader = createTuiLoadingBall("Suche nach Geraeten...");
+ * const loader = createTuiLoadingBall("Searching devices…");
  * loader.start();
  * await doWork();
- * loader.stop("Fertig");
+ * loader.stop("Done");
  */
 
 import { TUI_THEME } from "./tui-theme.js";
@@ -30,7 +30,7 @@ function clearLine(): void {
   process.stdout.write("\r\u001b[2K");
 }
 
-export function createTuiLoadingBall(label = "Laedt...", intervalMs = 90) {
+export function createTuiLoadingBall(label = "Loading…", intervalMs = 90) {
   let frameIndex = 0;
   let timer: NodeJS.Timeout | undefined;
 

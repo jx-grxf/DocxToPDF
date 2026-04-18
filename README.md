@@ -16,14 +16,14 @@ A calm TypeScript TUI for finding DOCX files and batch-converting them to PDF wi
 ```text
 ┌────────────────────────────────────────────────────────────┐
 │ Docx Word PDF                                              │
-│ Systemweite DOCX-Suche. Auswahl mit Space. Export mit Word.│
+│ System-wide DOCX search. Space to select. Export with Word. │
 └────────────────────────────────────────────────────────────┘
 
-  ◐ Suche systemweit nach DOCX Dokumenten...
+  ◐ Searching the system for DOCX files…
 
-  › [ ] Bewerbung.docx        /Users/johannes/Documents
-    [x] Rechnung.docx         /Users/johannes/Downloads
-    [ ] Vertrag.docx          /Users/johannes/Desktop
+  › [ ] resume.docx             /Users/you/Documents
+    [x] invoice.docx          /Users/you/Downloads
+    [ ] contract.docx           /Users/you/Desktop
 ```
 
 ## Contents
@@ -45,7 +45,8 @@ A calm TypeScript TUI for finding DOCX files and batch-converting them to PDF wi
 | --- | --- |
 | Native Word engine | Uses Microsoft Word via AppleScript, so PDFs match Word's own export output. |
 | System-wide DOCX search | Uses macOS Spotlight first and falls back to filesystem search when needed. |
-| Keyboard selection | Navigate with arrow keys, select with Space, filter with `/`, confirm with Enter. |
+| Keyboard selection | Arrow keys, Space to toggle, type to filter, Ctrl+A (all visible), Ctrl+N (clear), Enter to continue. |
+| Batch export | One Word session exports every selected file in order (faster than separate runs). |
 | Optional OCR | Adds a searchable OCR layer through OCRmyPDF without replacing existing PDF text. |
 | Calm TUI | Uses the provided theme and loading-ball animation without heavy UI clutter. |
 
@@ -59,7 +60,7 @@ LibreOffice and document parsing libraries can convert DOCX files, but complex W
 2. Show all results in a keyboard-driven TUI.
 3. Select documents with Space.
 4. Choose output folder, OCR, and overwrite behavior.
-5. Export each selected document through Microsoft Word.
+5. Export through Microsoft Word in one session (with AppleScript alerts suppressed where supported).
 
 ## Tech Stack
 
@@ -97,13 +98,15 @@ Controls:
 | --- | --- |
 | Arrow Up / Down | Move through results |
 | Space | Select or unselect a document |
-| `/` | Filter visible results |
-| `a` | Select all visible results |
-| `n` | Clear selection |
+| Type letters | Filter the list (start typing; `/` opens filter without a leading slash) |
+| Ctrl+A | Select all visible results |
+| Ctrl+N | Clear selection among visible results |
 | Enter | Continue |
 | `q` | Quit |
 
 On first conversion, macOS may ask whether your terminal may control Microsoft Word. Allow it, otherwise Word cannot export PDFs.
+
+Word modal prompts (for example linked fields) are suppressed during automation via `display alerts`; some macOS security prompts may still appear until paths are trusted once.
 
 ## Development
 

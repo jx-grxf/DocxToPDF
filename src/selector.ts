@@ -44,7 +44,7 @@ export async function selectDocxFiles(files: readonly DocxFile[]): Promise<DocxF
 
       const cancel = () => {
         cleanup();
-        reject(new Error("Abgebrochen."));
+        reject(new Error("Cancelled."));
       };
 
       const render = () => drawSelector(files, state);
@@ -73,6 +73,42 @@ export async function selectDocxFiles(files: readonly DocxFile[]): Promise<DocxF
           return;
         }
 
+        if (key.ctrl && key.name === "a") {
+          for (const file of visibleFiles) {
+            state.selectedPaths.add(file.path);
+          }
+          clampState(state, visibleFiles.length);
+          render();
+          return;
+        }
+        if (key.ctrl && key.name === "n") {
+          state.selectedPaths.clear();
+          clampState(state, visibleFiles.length);
+          render();
+          return;
+        }
+
+        const printableTyped =
+          character &&
+          character >= " " &&
+          !key.ctrl &&
+          !(key as { meta?: boolean }).meta &&
+          key.name !== "return" &&
+          key.name !== "space" &&
+          key.name !== "tab";
+
+        if (printableTyped) {
+          state.editingFilter = true;
+          if (character === "/") {
+            /* "/" opens filter mode without adding "/" to the filter text */
+          } else {
+            state.filter += character;
+          }
+          clampState(state, getVisibleFiles(files, state.filter).length);
+          render();
+          return;
+        }
+
         switch (key.name) {
           case "q":
             cancel();
@@ -89,16 +125,6 @@ export async function selectDocxFiles(files: readonly DocxFile[]): Promise<DocxF
           case "return":
             finish();
             return;
-          default:
-            if (character === "/") {
-              state.editingFilter = true;
-            } else if (character === "a") {
-              for (const file of visibleFiles) {
-                state.selectedPaths.add(file.path);
-              }
-            } else if (character === "n") {
-              state.selectedPaths.clear();
-            }
         }
 
         clampState(state, visibleFiles.length);
@@ -135,12 +161,14 @@ function drawSelector(files: readonly DocxFile[], state: SelectorState): void {
   const filterText = state.editingFilter ? accent(`${filterLabel}_`) : muted(filterLabel);
 
   clearScreen();
-  process.stdout.write(`${drawBox("Docx Word PDF", "Systemweite DOCX-Suche. Auswahl mit Space. Export mit Word.")}\n\n`);
-  process.stdout.write(`${accent(String(files.length))} Dateien gefunden · ${accent(String(selectedCount))} ausgewählt · ${filterText}\n`);
-  process.stdout.write(`${muted("↑/↓ bewegen  Space auswählen  / filtern  a alle sichtbaren  n keine  Enter weiter  q raus")}\n\n`);
+  process.stdout.write(`${drawBox("Docx Word PDF", "System-wide DOCX search. Space to select. Export with Word.")}\n\n`);
+  process.stdout.write(`${accent(String(files.length))} file(s) found · ${accent(String(selectedCount))} selected · ${filterText}\n`);
+  process.stdout.write(
+    `${muted("↑/↓ move  Space toggle  type to filter  ⌃A all visible  ⌃N clear selection  Enter continue  q quit")}\n\n`
+  );
 
   if (visibleSlice.length === 0) {
-    process.stdout.write(`${warn("Keine Treffer für diesen Filter.")}\n`);
+    process.stdout.write(`${warn("No matches for this filter.")}\n`);
     return;
   }
 
