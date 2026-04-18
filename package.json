@@ -4,7 +4,8 @@
   "description": "A calm TypeScript TUI for batch converting DOCX files to PDF with Microsoft Word as the native engine.",
   "type": "module",
   "bin": {
-    "docx-word-pdf": "./dist/src/index.js"
+    "docx-word-pdf": "./dist/src/index.js",
+    "docxtopdf": "./dist/src/index.js"
   },
   "scripts": {
     "dev": "tsx src/index.ts",
