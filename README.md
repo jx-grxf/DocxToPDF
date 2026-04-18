@@ -1,6 +1,6 @@
 <div align="center">
 
-# Docx Word PDF
+# Docx To PDF
 
 A calm TypeScript TUI for finding DOCX files and batch-converting them to PDF with Microsoft Word as the native export engine.
 
