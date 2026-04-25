@@ -48,7 +48,6 @@ A calm TypeScript TUI for finding DOCX files and batch-converting them to PDF wi
 | Keyboard selection | Arrow keys, Space to toggle, type to filter, Ctrl+A (all visible), Ctrl+N (clear), Enter to continue. |
 | Batch export | One Word session exports every selected file in order (faster than separate runs). |
 | Optional OCR | Adds a searchable OCR layer through OCRmyPDF without replacing existing PDF text. |
-| Calm TUI | Uses the provided theme and loading-ball animation without heavy UI clutter. |
 
 ## Why This Exists
 
