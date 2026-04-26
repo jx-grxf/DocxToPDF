@@ -2,7 +2,7 @@
 
 # Docx To PDF
 
-A calm TypeScript TUI for finding DOCX files and batch-converting them to PDF with Microsoft Word as the native export engine.
+A TypeScript TUI for finding DOCX files and batch-converting them to PDF with Microsoft Word as the native export engine.
 
 ![TypeScript](https://img.shields.io/badge/typescript-5.9-blue)
 ![Node](https://img.shields.io/badge/node-22%2B-green)
@@ -16,28 +16,31 @@ A calm TypeScript TUI for finding DOCX files and batch-converting them to PDF wi
 ```text
 ┌────────────────────────────────────────────────────────────┐
 │ Docx Word PDF                                              │
-│ System-wide DOCX search. Space to select. Export with Word. │
+│ System-wide DOCX search. Space to select. Export with Word.│
 └────────────────────────────────────────────────────────────┘
 
   ◐ Searching the system for DOCX files…
 
   › [ ] resume.docx             /Users/you/Documents
-    [x] invoice.docx          /Users/you/Downloads
+    [x] invoice.docx            /Users/you/Downloads
     [ ] contract.docx           /Users/you/Desktop
 ```
 
 ## Contents
 
-- [Highlights](#highlights)
-- [Why This Exists](#why-this-exists)
-- [Current Workflow](#current-workflow)
-- [Tech Stack](#tech-stack)
-- [Requirements](#requirements)
-- [Quick Start](#quick-start)
-- [Usage](#usage)
-- [Development](#development)
-- [Roadmap](#roadmap)
-- [License](#license)
+- [Docx To PDF](#docx-to-pdf)
+  - [Showcase](#showcase)
+  - [Contents](#contents)
+  - [Highlights](#highlights)
+  - [Why This Exists](#why-this-exists)
+  - [Current Workflow](#current-workflow)
+  - [Tech Stack](#tech-stack)
+  - [Requirements](#requirements)
+  - [Quick Start](#quick-start)
+  - [Usage](#usage)
+  - [Development](#development)
+  - [Roadmap](#roadmap)
+  - [License](#license)
 
 ## Highlights
 
