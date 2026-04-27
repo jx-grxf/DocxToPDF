@@ -24,6 +24,7 @@ A TypeScript TUI for finding DOCX files and batch-converting them to PDF with Mi
   › [ ] resume.docx             /Users/you/Documents
     [x] invoice.docx            /Users/you/Downloads
     [ ] contract.docx           /Users/you/Desktop
+    [ ] tiki.docx               /Users/you/Desktop
 ```
 
 ## Contents
