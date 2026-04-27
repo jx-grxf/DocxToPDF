@@ -2,7 +2,7 @@
 
 # Docx To PDF
 
-A calm TypeScript TUI for finding DOCX files and batch-converting them to PDF with Microsoft Word as the native export engine.
+A TypeScript TUI for finding DOCX files and batch-converting them to PDF with Microsoft Word as the native export engine.
 
 ![TypeScript](https://img.shields.io/badge/typescript-5.9-blue)
 ![Node](https://img.shields.io/badge/node-22%2B-green)
