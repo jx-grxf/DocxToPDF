@@ -16,7 +16,7 @@ A calm TypeScript TUI for finding DOCX files and batch-converting them to PDF wi
 ```text
 ┌────────────────────────────────────────────────────────────┐
 │ Docx Word PDF                                              │
-│ System-wide DOCX search. Space to select. Export with Word. │
+│ System-wide DOCX search. Space to select. Export with Word.│
 └────────────────────────────────────────────────────────────┘
 
   ◐ Searching the system for DOCX files…
@@ -28,16 +28,19 @@ A calm TypeScript TUI for finding DOCX files and batch-converting them to PDF wi
 
 ## Contents
 
-- [Highlights](#highlights)
-- [Why This Exists](#why-this-exists)
-- [Current Workflow](#current-workflow)
-- [Tech Stack](#tech-stack)
-- [Requirements](#requirements)
-- [Quick Start](#quick-start)
-- [Usage](#usage)
-- [Development](#development)
-- [Roadmap](#roadmap)
-- [License](#license)
+- [Docx To PDF](#docx-to-pdf)
+  - [Showcase](#showcase)
+  - [Contents](#contents)
+  - [Highlights](#highlights)
+  - [Why This Exists](#why-this-exists)
+  - [Current Workflow](#current-workflow)
+  - [Tech Stack](#tech-stack)
+  - [Requirements](#requirements)
+  - [Quick Start](#quick-start)
+  - [Usage](#usage)
+  - [Development](#development)
+  - [Roadmap](#roadmap)
+  - [License](#license)
 
 ## Highlights
 
