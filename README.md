@@ -2,7 +2,7 @@
 
 # Docx To PDF
 
-A calm TypeScript TUI for finding DOCX files and batch-converting them to PDF with Microsoft Word as the native export engine.
+A TypeScript TUI for finding DOCX files and batch-converting them to PDF with Microsoft Word as the native export engine.
 
 ![TypeScript](https://img.shields.io/badge/typescript-5.9-blue)
 ![Node](https://img.shields.io/badge/node-22%2B-green)
@@ -22,8 +22,9 @@ A calm TypeScript TUI for finding DOCX files and batch-converting them to PDF wi
   ◐ Searching the system for DOCX files…
 
   › [ ] resume.docx             /Users/you/Documents
-    [x] invoice.docx          /Users/you/Downloads
+    [x] invoice.docx            /Users/you/Downloads
     [ ] contract.docx           /Users/you/Desktop
+    [ ] tiki.docx               /Users/you/Desktop
 ```
 
 ## Contents
@@ -51,7 +52,6 @@ A calm TypeScript TUI for finding DOCX files and batch-converting them to PDF wi
 | Keyboard selection | Arrow keys, Space to toggle, type to filter, Ctrl+A (all visible), Ctrl+N (clear), Enter to continue. |
 | Batch export | One Word session exports every selected file in order (faster than separate runs). |
 | Optional OCR | Adds a searchable OCR layer through OCRmyPDF without replacing existing PDF text. |
-| Calm TUI | Uses the provided theme and loading-ball animation without heavy UI clutter. |
 
 ## Why This Exists
 
